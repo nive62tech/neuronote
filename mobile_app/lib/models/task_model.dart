@@ -12,7 +12,7 @@ class Task {
   });
 }
 
-// Dummy data for Phase 1 UI only — replaced by real storage in Phase 4.
+// Dummy data for Phase 1 UI only -- replaced by real storage in Phase 4.
 final List<Task> dummyTasks = [
   Task(
     id: '1',
