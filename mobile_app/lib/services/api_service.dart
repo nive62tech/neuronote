@@ -3,7 +3,7 @@ import 'package:http/http.dart' as http;
 
 class ApiService {
   // 10.0.2.2 is the Android emulator's alias for the host machine's localhost.
-  static const String baseUrl = 'http://10.0.2.2:8000/api';
+  static const String baseUrl = 'http://192.168.1.4:8000/api';
 
   Future<String> transcribe(String audioFilePath) async {
     final uri = Uri.parse('$baseUrl/transcribe');

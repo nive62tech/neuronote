@@ -30,7 +30,7 @@ def extract_tasks(text: str) -> dict:
             timeout=60,
         )
         response.raise_for_status()
-        raw = response.json().get("response", "")
+        print(f"[DEBUG] Raw LLM output: {raw}")
         match = re.search(r"\{.*\}", raw, re.DOTALL)
         parsed = json.loads(match.group(0)) if match else {"tasks": [], "summary": text}
     except Exception:
