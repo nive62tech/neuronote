@@ -1,13 +1,14 @@
 from datetime import datetime
 
-import dateparser
+from dateparser.search import search_dates
 
 
 def parse_relative_date(text: str):
-    result = dateparser.parse(
+    results = search_dates(
         text,
         settings={"PREFER_DATES_FROM": "future", "RELATIVE_BASE": datetime.now()},
     )
-    if result:
-        return result.strftime("%Y-%m-%d"), result.strftime("%H:%M")
+    if results:
+        _, parsed_date = results[-1]  # last date mention in the sentence
+        return parsed_date.strftime("%Y-%m-%d"), parsed_date.strftime("%H:%M")
     return None, None
